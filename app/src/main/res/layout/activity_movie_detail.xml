@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.blogspot.ramannada.movieapp.MovieDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/pocdtnt"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                tools:text="Live Free or Die Hard"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Action | Thriller | Adventure"
+                android:layout_marginBottom="20dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:id="@+id/tv_release_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="June 22, 2017"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:id="@+id/tv_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_release_date"
+                    tools:text="2h 10m"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <TextView
+                    android:id="@+id/tv_imdb_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7.2/ 10"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IMDb"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:textColor="#fff"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="@drawable/imdb_background"
+                    android:layout_toRightOf="@id/tv_imdb_score"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Info"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cast / Info"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Reviews"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Awards"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ddd"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/tv_synopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:text="As the nation prepares to celebrate Independence Day, veteran cop John McClane (Bruce Willis) carries out another routine assignment: bringing in a computer hacker (Justin Long) for questioning. Meanwhile, a tech-savvy villain named Thomas Gabriel (Timothy Olyphant) launches an attack on America's computer infrastructure. As chaos descends around him, McClane must use old-fashioned methods to fight the high-tech threat."
+            android:textColor="#555"
+            android:layout_marginBottom="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_director"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Director: Len Wiseman"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>
