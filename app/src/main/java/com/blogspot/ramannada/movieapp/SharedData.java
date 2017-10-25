@@ -13,10 +13,12 @@ public class SharedData {
     private static SharedData sharedData;
     private static final String SHARED_DATA_NAME = "com.blogspot.ramannada.movieapp.shareddata";
     private static final String LOGIN_STORAGE = "login";
+    private static final String USER_STORAGE_ID = "user.id";
     private static final String USER_STORAGE_USERNAME = "user.username";
     private static final String USER_STORAGE_EMAIL = "user.email";
     private static final String USER_STORAGE_PASSWORD = "user.password";
     private static final String USER_STORAGE_GENDER = "user.gender";
+    private static final String USER_STORAGE_PHOTO = "user.photo";
 
     public SharedData(Context c) {
         this.sharedPreferences = c.getSharedPreferences(SHARED_DATA_NAME, Context.MODE_PRIVATE);
@@ -45,6 +47,15 @@ public class SharedData {
         editorSharedPreferences.commit();
     }
 
+    public void saveUserStorage(User user) {
+        editorSharedPreferences.putInt(USER_STORAGE_ID, user.getId());
+        editorSharedPreferences.putString(USER_STORAGE_USERNAME, user.getUsername());
+        editorSharedPreferences.putString(USER_STORAGE_EMAIL, user.getEmail());
+        editorSharedPreferences.putString(USER_STORAGE_GENDER, user.getGender());
+        editorSharedPreferences.putInt(USER_STORAGE_PHOTO, user.getPhoto());
+
+    }
+
     public void saveUserStorageUsername(String username) {
         editorSharedPreferences.putString(USER_STORAGE_USERNAME, username);
         editorSharedPreferences.commit();
@@ -63,6 +74,10 @@ public class SharedData {
     public void saveUserStorageGender(String gender) {
         editorSharedPreferences.putString(USER_STORAGE_GENDER, gender);
         editorSharedPreferences.commit();
+    }
+
+    public int getUserStorageId() {
+        return sharedPreferences.getInt(USER_STORAGE_ID, 0);
     }
 
     public String getUserStorageUsername() {

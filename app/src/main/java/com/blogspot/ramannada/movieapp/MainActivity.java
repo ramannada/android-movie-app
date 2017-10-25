@@ -1,10 +1,12 @@
 package com.blogspot.ramannada.movieapp;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,28 +22,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        hotMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        DatabaseHandler db = new DatabaseHandler(this);
+        Log.d("array list movie db ", String.valueOf(db.getAllMovie().isEmpty()));
+        hotMovies = db.getAllMovie();
+
+//        hotMovies.add(new Movie("Spider-Man 1", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 2", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 3", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 4", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 5", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 6", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 7", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 8", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 9", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+//        hotMovies.add(new Movie("Spider-Man 10", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
 
 
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-        recentMovies.add(new Movie("Spider-Man: Homecoming", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 11", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 12", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 13", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 14", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 15", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 16", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 17", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 18", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 19", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        recentMovies.add(new Movie("Spider-Man 20", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
 
 
         TextView tvLogout = findViewById(R.id.tv_logout);

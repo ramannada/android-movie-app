@@ -9,7 +9,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedData.init(SplashActivity.this);
 
         try {
             Thread.sleep(1000);

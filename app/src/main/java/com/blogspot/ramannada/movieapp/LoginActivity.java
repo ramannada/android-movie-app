@@ -1,7 +1,9 @@
 package com.blogspot.ramannada.movieapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaCodec;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -19,10 +21,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        final DatabaseHandler db = new DatabaseHandler(this);
+
         final EditText etEmail = findViewById(R.id.et_email);
         final EditText etPassword = findViewById(R.id.et_password);
         Button btnLogin = findViewById(R.id.btn_login);
-        TextView tvRegister = findViewById(R.id.tv_register);
+        final TextView tvRegister = findViewById(R.id.tv_register);
 
         email = etEmail.getText().toString();
         password = etPassword.getText().toString();
@@ -51,17 +55,30 @@ public class LoginActivity extends AppCompatActivity {
                     etEmail.requestFocus();
                 }
 
-                if(!etEmail.getText().toString().isEmpty() && !etPassword.getText().toString().isEmpty() &&
-                        etEmail.getText().toString().equals(SharedData.getSharedData().getUserStorageEmail()) &&
-                        etPassword.getText().toString().equals(SharedData.getSharedData().getUserStoragePassword())) {
-                    SharedData.getSharedData().saveLoginStatus(true);
+                if(!etEmail.getText().toString().isEmpty() &&
+                        !etPassword.getText().toString().isEmpty()) {
 
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(i);
-                    finish();
+                    if (db.processUserLogin(etEmail.getText().toString(),
+                            etPassword.getText().toString())) {
+
+                        User user = db.getUserByEmail(etEmail.getText().toString());
+
+                        SharedData.getSharedData().saveUserStorage(user);
+                        SharedData.getSharedData().saveLoginStatus(true);
+
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                        Toast.makeText(LoginActivity.this, "Welcome " + user.getUsername(), Toast.LENGTH_SHORT).show();
+                        startActivity(i);
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Wrong Email or Password", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 } else {
-                    Toast.makeText(LoginActivity.this, "Email or Password wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Email or Password can't be empty", Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -13,6 +13,7 @@ public class Movie implements Parcelable {
     private String duration;
     private String releaseDate;
     private int poster;
+    private int id;
 
     public Movie(String title, String director, String duration, String releaseDate, int poster) {
         this.title = title;
@@ -20,6 +21,9 @@ public class Movie implements Parcelable {
         this.duration = duration;
         this.releaseDate = releaseDate;
         this.poster = poster;
+    }
+
+    public Movie() {
     }
 
     public String getTitle() {
@@ -60,6 +64,14 @@ public class Movie implements Parcelable {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

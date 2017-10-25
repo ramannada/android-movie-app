@@ -1,6 +1,8 @@
 package com.blogspot.ramannada.movieapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -16,6 +19,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        final DatabaseHandler db = new DatabaseHandler(this);
 
         final EditText etUsername = findViewById(R.id.et_username);
         final EditText etEmail = findViewById(R.id.et_email);
@@ -64,15 +69,32 @@ public class RegisterActivity extends AppCompatActivity {
                if (!etUsername.getText().toString().isEmpty() &&
                        !etPassword.getText().toString().isEmpty() &&
                        !etEmail.getText().toString().isEmpty()) {
-                   SharedData.getSharedData().saveUserStorageUsername(etUsername.getText().toString());
-                   SharedData.getSharedData().saveUserStorageEmail(etEmail.getText().toString());
-                   SharedData.getSharedData().saveUserStoragePassword(etPassword.getText().toString());
-                   SharedData.getSharedData().saveUserStorageGender(onRadioGenderClicked(view));
 
-                   Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-                   i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                   startActivity(i);
-                   finish();
+                   User user = new User(
+                           etUsername.getText().toString(),
+                           etEmail.getText().toString(),
+                           etPassword.getText().toString(),
+                           onRadioGenderClicked(view)
+                   );
+
+                   if (db.getUserByEmail(user.getEmail()) == null) {
+                       db.addUser(user);
+                       SharedData.getSharedData().saveLoginStatus(true);
+
+
+                       Toast.makeText(RegisterActivity.this, "Welcome " +
+                               db.getUserByEmail(user.getEmail()).getUsername(),
+                               Toast.LENGTH_SHORT).show();
+
+                       Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                       i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                       startActivity(i);
+                       finish();
+                   } else {
+                       Toast.makeText(RegisterActivity.this, "Email has been used. Please use another", Toast.LENGTH_LONG).show();
+                   }
+
+
                }
             }
 
