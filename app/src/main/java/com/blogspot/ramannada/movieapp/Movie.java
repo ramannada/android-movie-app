@@ -3,17 +3,31 @@ package com.blogspot.ramannada.movieapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
+
+import java.util.List;
+
+
 /**
  * Created by ramannada on 10/23/2017.
  */
 
-public class Movie implements Parcelable {
-    private String title;
-    private String director;
-    private String duration;
-    private String releaseDate;
-    private int poster;
-    private int id;
+@Table(name = "movie", id = "_id")
+public class Movie extends Model implements Parcelable {
+    @Column(name = "title", index = true)
+    public String title;
+    @Column(name = "director")
+    public String director;
+    @Column(name = "duration")
+    public String duration;
+    @Column(name = "release_date")
+    public String releaseDate;
+    @Column(name = "poster")
+    public int poster;
+    Long id;
 
     public Movie(String title, String director, String duration, String releaseDate, int poster) {
         this.title = title;
@@ -66,13 +80,6 @@ public class Movie implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     @Override
     public int describeContents() {
@@ -107,4 +114,11 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
+
+    public static List<Movie> getAllMovie() {
+        return new Select()
+                .from(Movie.class)
+                .orderBy("title ASC")
+                .execute();
+    }
 }

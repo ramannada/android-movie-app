@@ -48,7 +48,7 @@ public class SharedData {
     }
 
     public void saveUserStorage(User user) {
-        editorSharedPreferences.putInt(USER_STORAGE_ID, user.getId());
+        editorSharedPreferences.putLong(USER_STORAGE_ID, user.getId());
         editorSharedPreferences.putString(USER_STORAGE_USERNAME, user.getUsername());
         editorSharedPreferences.putString(USER_STORAGE_EMAIL, user.getEmail());
         editorSharedPreferences.putString(USER_STORAGE_GENDER, user.getGender());

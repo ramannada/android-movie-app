@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DatabaseHandler db = new DatabaseHandler(this);
-        Log.d("array list movie db ", String.valueOf(db.getAllMovie().isEmpty()));
-        hotMovies = db.getAllMovie();
+
+        hotMovies =(ArrayList<Movie>) Movie.getAllMovie();
+        Log.d("array hot movies", hotMovies.toString());
+
 
 //        hotMovies.add(new Movie("Spider-Man 1", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
 //        hotMovies.add(new Movie("Spider-Man 2", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         recentMovies.add(new Movie("Spider-Man 20", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
 
 
-        TextView tvLogout = findViewById(R.id.tv_logout);
+        TextView tvLogout =  findViewById(R.id.tv_logout);
         tvLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView hotMovieRecyclerView = findViewById(R.id.recycler_view_hot_movie);
+        RecyclerView hotMovieRecyclerView =  findViewById(R.id.recycler_view_hot_movie);
         RecyclerView.Adapter hotMovieAdapter = new MovieAdapter(hotMovies);
         hotMovieRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         hotMovieRecyclerView.setAdapter(hotMovieAdapter);

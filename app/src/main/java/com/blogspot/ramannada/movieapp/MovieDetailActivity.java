@@ -12,11 +12,11 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
-        ImageView ivPoster = findViewById(R.id.iv_poster);
-        TextView tvTitle = findViewById(R.id.tv_title);
-        TextView tvReleaseDate = findViewById(R.id.tv_release_date);
-        TextView tvDirector = findViewById(R.id.tv_director);
-        TextView tvDuration = findViewById(R.id.tv_duration);
+        ImageView ivPoster = (ImageView) findViewById(R.id.iv_poster);
+        TextView tvTitle =(TextView) findViewById(R.id.tv_title);
+        TextView tvReleaseDate = (TextView) findViewById(R.id.tv_release_date);
+        TextView tvDirector = (TextView) findViewById(R.id.tv_director);
+        TextView tvDuration = (TextView) findViewById(R.id.tv_duration);
 
         Movie movie = getIntent().getParcelableExtra(MainActivity.MOVIE_DATA);
 
