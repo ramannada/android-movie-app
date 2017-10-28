@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("array hot movies", hotMovies.toString());
 
 
-//        hotMovies.add(new Movie("Spider-Man 1", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-//        hotMovies.add(new Movie("Spider-Man 2", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-//        hotMovies.add(new Movie("Spider-Man 3", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-//        hotMovies.add(new Movie("Spider-Man 4", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
-//        hotMovies.add(new Movie("Spider-Man 5", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        hotMovies.add(new Movie("Spider-Man 1", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        hotMovies.add(new Movie("Spider-Man 2", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        hotMovies.add(new Movie("Spider-Man 3", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        hotMovies.add(new Movie("Spider-Man 4", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
+        hotMovies.add(new Movie("Spider-Man 5", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
 //        hotMovies.add(new Movie("Spider-Man 6", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
 //        hotMovies.add(new Movie("Spider-Man 7", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
 //        hotMovies.add(new Movie("Spider-Man 8", "Jon Watts", "2h 3m","July 5, 2017", R.drawable.pocdtnt));
