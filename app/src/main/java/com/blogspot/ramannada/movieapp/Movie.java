@@ -2,7 +2,6 @@ package com.blogspot.ramannada.movieapp;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;

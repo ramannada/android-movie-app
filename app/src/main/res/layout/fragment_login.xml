@@ -4,46 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.blogspot.ramannada.movieapp.LoginActivity"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context="com.blogspot.ramannada.movieapp.LoginActivity">
 
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"/>
+        android:text="Login" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/tv_have_no_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have account?"/>
+            android:text="Don't have account?" />
 
         <TextView
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:textColor="@android:color/holo_blue_dark"
+            android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/tv_have_no_account"
-            android:layout_marginLeft="10dp"/>
+            android:text="Register"
+            android:textColor="@android:color/holo_blue_dark" />
     </RelativeLayout>
 </LinearLayout>
+
+
+
